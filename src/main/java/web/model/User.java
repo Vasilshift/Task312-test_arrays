@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Entity
-@XmlRootElement
+//@XmlRootElement
 @Table(name = "users")
 public class User implements UserDetails {
 
