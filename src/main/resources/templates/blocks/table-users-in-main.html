@@ -1,3 +1,4 @@
+<script src="/js/script.js"></script>
 <div th:fragment="table-users-in-main">
 <div class="table-users">
   <table class="table table-striped">
@@ -13,23 +14,10 @@
       <th scope="col">Delete</th>
     </tr>
     </thead>
-    <tbody>
-    <tr th:each="user: ${users}">
-      <td th:text="${user.getId()}"></td>
-      <td th:text="${user.getUsername()}"></td>
-      <td th:text="${user.getLastname()}"></td>
-      <td th:text="${user.getAge()}"></td>
-      <td th:text="${user.getEmail()}"></td>
-      <td th:text="${user.getNameRole()}"></td>
 
-      <form th:method="GET" th:action="@{/admin/user-update/{id}(id=${user.getId()})}">
-        <td><input class="form-control edit-user" type="submit" value="Edit" ></td>
-      </form>
-      <form th:method="GET" th:action="@{/admin/user-delete/{id}(id=${user.getId()})}">
-        <td><input class="form-control delete-user" type="submit" value="Delete"></td>
-      </form>
-    </tr>
+    <tbody id="user_table_body">
     </tbody>
+
   </table>
 </div>
 </div>
