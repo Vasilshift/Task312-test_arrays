@@ -13,68 +13,60 @@
 
 <div class="container-fluid">
     <div class="row">
-                <!-- Общий контейнер для табов -->
-                <div class="tabs">
-                    <div class="col-2 left-col">
-                        <!--  begin Контейнер с вкладками Admin and User  -->
-                        <div class="row">
-                            <ul class="tab-header">
-                                <li class="tab-header__item js-tab-trigger active" data-tab="1">Admin</li>
-                                <li class="tab-header__item js-tab-trigger" data-tab="2">User</li>
-                            </ul>
-                        </div>
-                    </div>
+        <!-- Общий контейнер для табов -->
+        <div class="tabs">
+            <div class="col-2 left-col">
+                <div class="row">
+                    <!--  Контейнер с вкладками   -->
+                    <ul class="tab-header">
+                        <li class="tab-header__item js-tab-trigger active" data-tab="1">Admin</li>
+                        <li class="tab-header__item js-tab-trigger" data-tab="2">User</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-10 left-col">
+                <!--  Контейнер с блоками, которые содержат контент вкладок   -->
+                <ul class="tab-content">
+                    <li class="tab-content__item js-tab-content active" data-tab="1">
+                        <div class="left-col col-10 vh-100">
 
-                    <div class="col-10 left-col">
-                    <!--main Container for nested tabs-->
-
-                        <!--  Контейнер с блоками, которые содержат контент вкладок Admin and User  -->
-                        <ul class="tab-content">
                             <div class="tabs">
-                                <li class="tab-content__item js-tab-content active" data-tab="1">
-                                    <div class="left-col col-10 vh-100">
-                                        <div class="row container mt-5">
-                                            <h3>Admin panel</h3>
-
-                                                            <!--  Container for tabs User table and New user  -->
-                                                <ul class="tab-header">
-<!--                                                <ul class="nav nav-tabs">-->
-                                                    <li class="tab-header__item js-tab-trigger1 active1" data-tab="3">User table
-    <!--                                            <a class="nav-link active" aria-current="page">User table</a>-->
-                                                    </li>
-                                                    <li class="tab-header__item js-tab-trigger1" data-tab="4">New user
-    <!--                                            <a class="nav-link tab-header__item js-tab-trigger">New user</a>-->
-                                                    </li>
-                                                </ul>
-
-                                                <ul class="tab-content">
-                                                    <li class="tab-content__item js-tab-content1 active1" data-tab1="3">
-                                                        <div class="all-users" ><h4>All users</h4></div>
-                                                        <div th:insert="blocks/table-users-in-main :: name-table-users-in-main"></div>
-                                                    </li>
-                                                    <li class="tab-content__item js-tab-content1" data-tab1="4">
-<!--                                                        <div th:insert="blocks/new-user-block :: new-user-block"></div>-->
-                                                        <p>tab New user</p>
-                                                    </li>
-                                                </ul>
+                                <div class="comtainer mt-5">
+                                    <h2>Admin panel</h2>
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+                                                    aria-controls="home" aria-selected="true">Users table</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"
+                                                    aria-controls="profile" aria-selected="false">New user</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div th:insert="blocks/table-users-in-main :: table-users-in-main"></div>
                                         </div>
+                                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                            <div th:insert="blocks/new-user-block :: new-user-block"></div>
+                                        </div>
+
                                     </div>
-                                </li>
+                                </div>
 
-                                <li class="tab-content__item js-tab-content" data-tab="2">
-                                    <div th:insert="blocks/one-user-in-main :: name-user"></div>
-                                </li>
                             </div>
-                       </ul>
 
-
-
-                    </div>
-                </div>        <!-- end main Container for nested tabs -->
+                        </div>
+                    </li>
+                    <li class="tab-content__item js-tab-content" data-tab="2">
+                        <div th:insert="blocks/one-user-in-main :: name-user"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
-<script src="/js/script-1.js"></script>
 <script src="/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
