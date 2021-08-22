@@ -1,19 +1,58 @@
-const  a = document.querySelector('.table-users-object');
-let output = '';
-const url = 'http://localhost:8080/api/users';
+const  a = document.querySelector('.table-users-object')
+let output = ''
+const requrl = 'http://localhost:8080/api/users'
 
-//let data = JSON.parse(this.responseText);
 
-fetch(url, {
-    credentials: 'include'
-})
-    .then(res => res.json())
-    .then(data => {
-        data.forEach(u => {
-            output += `${u.username}`;
-        });
-        a.innerHTML = output;
+fetch(requrl).then(
+    res => {
+        res.json().then(
+            data => {
+                console.log(data);
+                let temp="";
+                data.forEach((u)=>{
+                    temp += "<tr>"
+                    temp += "<td>" + u.id + "</td>"
+                    temp += "<td>" + u.username + "</td>"
+                    temp += "<td>" + u.lastname + "</td>"
+                    temp += "<td>" + u.age + "</td>"
+                    temp += "<td>" + u.email + "</td>"
+                    temp += "<td>" + u.roles + "</td>"
+                    temp += "<td><button type='button' class='btn btn-primary' id='open-popup1'>Edit</button></td>"
+                    temp += "<td><button type='button' class='btn btn-danger' id='open-popup1'>Delete</button></td>"
+                    temp += "</tr>"
+                })
+                document.querySelector(".table-users-object").innerHTML = temp;
+            })
     })
+
+
+
+
+
+// function sendRequest(method, url) {
+//     return fetch(url).then(response => {
+//         return response.json()
+//     })
+// }
+//
+// sendRequest('GET', requrl)
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err))
+
+
+// let data = JSON.parse(this.responseText);
+//
+// fetch(url, {
+//     credentials: 'include'
+// })
+//     .then(res => res.json())
+//     .then(data => {
+//         data.forEach(u => {
+//             output += `${u.body}`;
+//         });
+//         a.innerHTML = output;
+//     })
+
 
 // function createTableRow(u) {                                                    //table creating
 //     let userRole = "[";
